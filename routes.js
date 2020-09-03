@@ -1,11 +1,9 @@
 const express = require("express");
-const GSR = require('google-search-results-nodejs');
 const router = express.Router();
-const unirest = require("unirest");
 var request = require("request");
 
 router.get("/", function(req, res){
-  return res.status(200).send("Welcome")
+  res.render("main")
 })
 console.log("foo")
 router.get("/gerRank", async function(req, res) {

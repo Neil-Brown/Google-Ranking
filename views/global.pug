@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+	head
+		block meta
+			meta(charset='utf-8')
+			meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		block imports
+			link( rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous")
+			link(rel="stylesheet", href="/css/style.min.css")
+			link(rel="icon" href="/img/favicon.ico")
+			script(integrity=	'sha256-0tIP0Ze34+/SOvx4Kg9UqdvljN0p5ERB5sdBihgFKQM=').
+				var test = document.createElement("div")
+				test.className = "hidden d-none"
+				document.head.appendChild(test)
+				var cssLoaded = window.getComputedStyle(test).display === "none"
+				document.head.removeChild(test)
+				if (!cssLoaded) {
+						var link = document.createElement("link");
+						link.type = "text/css";
+						link.rel = "stylesheet";
+						link.href = "static\bootstrap\bootstrap.min.css";
+						document.head.appendChild(link);
+				 }
+	body
+		block schema
+		block header
+		block main
+		block social
+		#footer.container-fluid.text-center
+
+			a#twitterFollow
+				img.twitterFollow.socialLogo(src="/img/twitterBird.svg" alt = "Twitter Follow")
+			a#facebookFollow(target="_blank" title="follow us on facebook" href="https://www.facebook.com/138669477606090" rel="noreferrer")
+				img.facebookFollow.socialLogo(alt="follow us on facebook" src="/img/F_icon_white.png")
+			h3 Follow Us
+			.footer-copyright.text-center.py-3 ©2020
+				a(href="https://seize-the-night.com/")  Seize-the-night.com
+		block js
+			script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+			script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous")
+			script(integrity='sha256-mXr6+K+XUHTfe6VoL0Yw6t5N6nf+wMPVzxDekTtU8xk=').
+				window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+				if(typeof($.fn.modal) === 'undefined') {document.write('<script src="/bootstrap/bootstrap.min.js"><\/script>')}

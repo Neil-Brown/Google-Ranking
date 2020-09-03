@@ -1,0 +1,42 @@
+#rank{
+    text-align:center;
+    background-color:#ABDBDF;
+    padding:1rem;
+    font-size:1rem;
+    margin:0 !important;
+    width:100%
+}
+
+.display-4{
+    text-shadow:0 2px 0 rgba(52,58,72,0.5)
+}
+
+#rank input{
+    margin:.5rem;
+    padding:.5rem;
+    width:100%;
+}
+
+
+.col-10{
+   padding-left:0;
+   padding-right:.5rem
+}
+.spinner-grow{
+    align-items:center;
+}
+.btn{
+    background-color:#343A40;
+    color:white;
+    margin:1rem .5rem;
+    font-size:1.5rem
+}
+
+.btn:hover{
+    background-color
+}
+
+#footer{
+    background-color:#343A40;
+    color:white;
+    }
