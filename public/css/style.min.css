@@ -44,5 +44,12 @@
 
 .badge{ 
   /* display:none; */
-  font-size:1rem;
+  font-size:1.3rem;
+  background-color:#343A40;
+  padding:.5rem 1rem;
+}
+
+.popover-header{
+  background-color:#343A40;
+  color:white
 }

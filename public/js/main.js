@@ -1,5 +1,9 @@
 document.querySelector("#getRank").addEventListener("submit", getRank)
 
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
 function getRank(e){
 	function validate(){
 		if (!document.forms["getRank"]["key1"].value && !document.forms["getRank"]["key2"].value && !document.forms["getRank"]["key3"].value){
@@ -35,10 +39,7 @@ function getRank(e){
 						let badge = document.querySelector(`#${parentId} .badge`)
 						badge.style.display = "inline-block"
 						badge.textContent = response.pos
-						badge.title = response.link
-						badge.addEventListener("click", function(){
-							alert(badge.title)
-						})
+						badge.setAttribute("data-content", response.link)
         }
     }
 	}

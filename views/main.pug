@@ -3,7 +3,7 @@ block main
 	.jumbotron.jumbotron-fluid#rank
 		h1.display-4 Where is your site on Google?
 		p.lead Find where your site ranks for keywords
-		form.container#getRank.md-form.text-center(name ="getRank" action="/contact" method="post" enctype="multipart/form-data")
+		form.container#getRank.md-form.text-center(name ="getRank" action="/getRank" method="post" enctype="multipart/form-data")
 			.row
 				input.col#site(type="url" placeholder="https://myWebsite.com" name="site")
 			.row#key1
@@ -12,21 +12,21 @@ block main
 				.col-2.my-auto
 					.spinner-grow(role="status")
 						span.sr-only Loading...
-					span.badge.badge-pill.badge-primary.showUrl(title="hello") 0
+					span.badge.badge-pill.badge-primary.showUrl(title="URL" data-placement="left" data-toggle="popover") 0
 			.row#key2
 				.col-10
 					input.key(type="text" placeholder="Keyword 2" name="key2")
 				.col-2.my-auto
 					.spinner-grow(role="status")
 						span.sr-only Loading...
-					span.badge.badge-pill.badge-primary 0
+					span.badge.badge-pill.badge-primary(title="URL" data-placement="left" data-toggle="popover") 0
 			.row#key3
 				.col-10
 					input.key(type="text" placeholder="Keyword 3" name="key3")
 				.col-2.my-auto
 					.spinner-grow(role="status")
 						span.sr-only Loading...
-					span.badge.badge-pill.badge-primary 0
+					span.badge.badge-pill.badge-primary(title="URL" data-placement="left" data-toggle="popover") 0
 			.row
 				button.col.btn(action="submit") Try for Free
 block append js
