@@ -1,17 +1,18 @@
 const express = require("express");
+const multer = require('multer');
 const router = express.Router();
-var request = require("request");
+const request = require("request");
+const upload = multer();
 
 router.get("/", function(req, res){
   res.render("main")
 })
-console.log("foo")
-router.get("/gerRank", async function(req, res) {
-  console.log(req.query)
+
+router.post("/getRank", upload.none(), async (req, res) => {
+  console.log(req.body.key)
   function parseQuery(){
-    r = req.query.query.split(" ")
     str = ""
-    for(const word of req.query.query.split(" ")){
+    for(const word of req.body.key.split(" ")){
       if(str.length > 0){
         str += "+"
       }
@@ -33,20 +34,19 @@ router.get("/gerRank", async function(req, res) {
   request(options, async function (error, response, body) {
   	if (error) throw new Error(error);
     obj = JSON.parse(body)
-    let pos = "not in top 100"
+    let pos = 0
+    let link = ""
     async function getRank(){
-      console.log(obj.results[0])
       for(let i=0; i<obj.results.length; i++){
-        console.log("i " + i)
-        console.log(obj.results[i].link)
-        if(obj.results[i].link.includes(req.query.website)){
+        if(obj.results[i].link.includes(req.body.site)){
           pos = i
+          link = obj.results[i].link
           break
         }
       }
     }
     await getRank()
-  	return res.status(200).send(`${req.query.website} is ranked ${pos} on Google for ${req.query.query}`);
+  	return res.status(200).send({pos:pos, link:link});
   });
 });
 

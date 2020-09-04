@@ -24,6 +24,7 @@
 }
 .spinner-grow{
     align-items:center;
+    display:none;
 }
 .btn{
     background-color:#343A40;
@@ -40,3 +41,8 @@
     background-color:#343A40;
     color:white;
     }
+
+.badge{ 
+  /* display:none; */
+  font-size:1rem;
+}
