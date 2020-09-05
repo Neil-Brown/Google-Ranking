@@ -58,10 +58,10 @@ router.post("/getRank", upload.none(), async (req, res) => {
 });
 
 //Site Map
-router.get('/sitemap.xml', (req, res) =>{
-	res.set('Content-Type', 'text/xml')
-	res.status(200).sendFile("sitemap.xml", {root: "./"});
-});
+// router.get('/sitemap.xml', (req, res) =>{
+// 	res.set('Content-Type', 'text/xml')
+// 	res.status(200).sendFile("sitemap.xml", {root: "./"});
+// });
 
 // Robots
 router.get('/robots.txt', (req, res) =>{
