@@ -1,8 +1,8 @@
 document.querySelector("#getRank").addEventListener("submit", getRank)
-
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+// 
+// $(function () {
+//   $('[data-toggle="popover"]').popover()
+// })
 
 function getRank(e){
 	function validate(){

@@ -1,20 +1,44 @@
+html{
+  height:100%;
+}
+
+body{
+  height:100%;
+}
+
+
 #rank{
     text-align:center;
     background-color:#ABDBDF;
     padding:1rem;
     font-size:1rem;
     margin:0 !important;
-    width:100%
+    min-height:80%
+
+
 }
+
+#footer{
+    background-color:#343A40;
+    color:white;
+    padding:1rem
+
+
+}
+
 
 .display-4{
     text-shadow:0 2px 0 rgba(52,58,72,0.5)
 }
 
 #rank input{
-    margin:.5rem;
     padding:.5rem;
     width:100%;
+    margin:.5rem 0
+}
+
+#rank label{
+  margin: .5rem 0 0 0;
 }
 
 
@@ -37,11 +61,6 @@
     background-color
 }
 
-#footer{
-    background-color:#343A40;
-    color:white;
-    }
-
 .badge{ 
   /* display:none; */
   font-size:1.3rem;
@@ -51,5 +70,25 @@
 
 .popover-header{
   background-color:#343A40;
-  color:white
+  color:white;
+}
+
+.hide {
+   position: absolute !important;
+   top: -9999px !important;
+   left: -9999px !important;
+}
+
+.notFound img{
+  width:50%;
+  height:auto;
+  border-radius:10%;
+}
+
+.citation{
+  margin:.7rem 0 3rem 0
+}
+
+.citation a{
+  color:blue
 }

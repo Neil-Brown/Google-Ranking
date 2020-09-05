@@ -1,3 +1,4 @@
+const config = require("./config")
 const express = require("express");
 const multer = require('multer');
 const router = express.Router();
@@ -9,7 +10,13 @@ router.get("/", function(req, res){
 })
 
 router.post("/getRank", upload.none(), async (req, res) => {
-  console.log(req.body.key)
+  if(req.body.site === undefined || req.body.site === ""){
+    return res.status(400).send("Site URL required")
+  }
+  if(req.body.key=== undefined || req.body.key === ""){
+    return res.status(400).send("Keyword required")
+  }
+
   function parseQuery(){
     str = ""
     for(const word of req.body.key.split(" ")){
@@ -26,13 +33,13 @@ router.post("/getRank", upload.none(), async (req, res) => {
     url: 'https://google-search3.p.rapidapi.com/api/v1/search/q=' + query + "&num=1000",
     headers: {
       'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-      'x-rapidapi-key': 'b334b61db6mshdf86d5299a401ccp169a1cjsnf1ec6cecfd8b',
+      'x-rapidapi-key': config.RAPIDapi,
       useQueryString: true
     }
   };
 
   request(options, async function (error, response, body) {
-  	if (error) throw new Error(error);
+  	if (error) throw new Error(error)
     obj = JSON.parse(body)
     let pos = 0
     let link = ""
@@ -48,6 +55,23 @@ router.post("/getRank", upload.none(), async (req, res) => {
     await getRank()
   	return res.status(200).send({pos:pos, link:link});
   });
+});
+
+//Site Map
+router.get('/sitemap.xml', (req, res) =>{
+	res.set('Content-Type', 'text/xml')
+	res.status(200).sendFile("sitemap.xml", {root: "./"});
+});
+
+// Robots
+router.get('/robots.txt', (req, res) =>{
+	res.set('Content-Type', 'text/plain')
+	res.status(200).sendFile("robots.txt", {root: "./"});
+});
+
+// 404
+router.use((req, res, next) => {
+    return res.status(404).render("404.pug")
 });
 
 

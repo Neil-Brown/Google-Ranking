@@ -1,32 +1,36 @@
 extends header
 block main
 	.jumbotron.jumbotron-fluid#rank
-		h1.display-4 Where is your site on Google?
+		h1.display-4 Where do I Rank on Google?
 		p.lead Find where your site ranks for keywords
 		form.container#getRank.md-form.text-center(name ="getRank" action="/getRank" method="post" enctype="multipart/form-data")
 			.row
 				input.col#site(type="url" placeholder="https://myWebsite.com" name="site")
+				label.hide(for="site") Your Site URL
 			.row#key1
 				.col-10
-					input.key(type="text" placeholder="Keyword 1" name="key1")
+					input.key#keyword1(type="text" placeholder="Keyword 1" name="key1")
+					label.hide(for="keyword1") Keyword 1
 				.col-2.my-auto
 					.spinner-grow(role="status")
 						span.sr-only Loading...
-					span.badge.badge-pill.badge-primary.showUrl(title="URL" data-placement="left" data-toggle="popover") 0
+					span.badge.badge-pill.badge-primary.showUrl(data-dismiss="true" data-title="URL" data-placement="left" data-toggle="popover" data-content="Unspecified") 0
 			.row#key2
 				.col-10
-					input.key(type="text" placeholder="Keyword 2" name="key2")
+					input.key#keyword2(type="text" placeholder="Keyword 2" name="key2")
+					label.hide(for="keyword2") Keyword 2
 				.col-2.my-auto
 					.spinner-grow(role="status")
 						span.sr-only Loading...
-					span.badge.badge-pill.badge-primary(title="URL" data-placement="left" data-toggle="popover") 0
+					span.badge.badge-pill.badge-primary(data-title="URL" data-placement="left" data-toggle="popover" data-content="Unspecified") 0
 			.row#key3
 				.col-10
-					input.key(type="text" placeholder="Keyword 3" name="key3")
+					input.key#keyword3(type="text" placeholder="Keyword 3" name="key3")
+					label.hide(for="keyword3") Keyword 3
 				.col-2.my-auto
 					.spinner-grow(role="status")
 						span.sr-only Loading...
-					span.badge.badge-pill.badge-primary(title="URL" data-placement="left" data-toggle="popover") 0
+					span.badge.badge-pill.badge-primary(data-title="URL" data-placement="left" data-toggle="popover" data-content="Unspecified") 0
 			.row
 				button.col.btn(action="submit") Try for Free
 block append js
