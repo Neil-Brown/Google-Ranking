@@ -9,19 +9,19 @@ var router = require("./routes");
 const environment = process.env.NODE_ENV || 3000;
 var nonce = crypto.randomBytes(16).toString('base64');
 
-// function redirect(req, res, next){
-// 	if(!process.env.PORT){
-// 	  return next();
-// 	}
-// 	let host = req.headers.host;
-//
-// 	if (req.headers["x-forwarded-proto"] !== "https"){
-// 		return res.redirect(301, "https://" + req.hostname + req.url);
-// 	} else if(host.match(/^www\..*/i)){
-// 		return res.redirect(301, "https://" + req.url);
-// 	}
-// 	next();
-//   };
+function redirect(req, res, next){
+	if(!process.env.PORT){
+	  return next();
+	}
+	let host = req.headers.host;
+
+	if (req.headers["x-forwarded-proto"] !== "https"){
+		return res.redirect(301, "https://" + req.hostname + req.url);
+	} else if(host.match(/^www\..*/i)){
+		return res.redirect(301, "https://" + host.split(".")[1]);
+	}
+	next();
+  };
 
   // App
 const app = express()
@@ -61,7 +61,7 @@ app.use(helmet.contentSecurityPolicy({
   }
 }))
 
-// app.all("*", redirect);
+app.all("*", redirect);
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "pug");
 app.use(bodyParser.urlencoded({extended: true}));
