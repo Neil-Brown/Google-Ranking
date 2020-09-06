@@ -5,7 +5,7 @@ const helmet = require("helmet")
 const request = require("request");
 var router = require("./routes");
 
-const environment = process.env.NODE_ENV || 'development';
+const port = process.env.NODE_ENV || 3000;
 
 // function redirect(req, res, next){
 // 	if(!process.env.PORT){
@@ -55,8 +55,8 @@ app.set("view engine", "pug");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(router)
-var server = app.listen(process.env.PORT || 3000, () => {
-   console.log(`Google Rankings listening at 3000`)
+var server = app.listen(port, () => {
+   console.log(`Google Rankings listening at ` + port)
 })
 
 module.exports = server
