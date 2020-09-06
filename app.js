@@ -7,19 +7,19 @@ var router = require("./routes");
 
 const environment = process.env.NODE_ENV || 'development';
 
-function redirect(req, res, next){
-	if(!process.env.PORT){
-	  return next();
-	}
-	let host = req.headers.host;
-
-	if (req.headers["x-forwarded-proto"] !== "https"){
-		return res.redirect(301, "https://" + req.hostname + req.url);
-	} else if(!host.match(/^www\..*/i)){
-		return res.redirect(301, "https://www." + host + req.url);
-	}
-	next();
-  };
+// function redirect(req, res, next){
+// 	if(!process.env.PORT){
+// 	  return next();
+// 	}
+// 	let host = req.headers.host;
+//
+// 	if (req.headers["x-forwarded-proto"] !== "https"){
+// 		return res.redirect(301, "https://" + req.hostname + req.url);
+// 	} else if(!host.match(/^www\..*/i)){
+// 		return res.redirect(301, "https://www." + host + req.url);
+// 	}
+// 	next();
+//   };
 
   // App
 const app = express()
