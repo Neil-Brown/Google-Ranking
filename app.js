@@ -29,7 +29,7 @@ app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
 app.use(helmet.contentSecurityPolicy({
   directives: {
     formAction:["'self'"],
-		defaultSrc:["'none'"],
+		defaultSrc:["'self'"],
 		frameAncestors:["'none'"],
 		baseUri:["'self'"],
     objectSrc:["'none'"],
