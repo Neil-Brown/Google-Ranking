@@ -10,6 +10,15 @@ router.get("/", function(req, res){
 })
 
 router.post("/getRank", upload.none(), async (req, res) => {
+  let SECRET;
+  if(process.env.RAPIDapi){
+    SECRET = process.env.RAPIDapi
+  } else if(config.RAPIDapi){
+    SECRET = config.RAPIDapi
+  } else {
+    return res.status(500).send("RAPIDapi key not found")
+  }
+
   if(req.body.site === undefined || req.body.site === ""){
     return res.status(400).send("Site URL required")
   }
@@ -33,7 +42,7 @@ router.post("/getRank", upload.none(), async (req, res) => {
     url: 'https://google-search3.p.rapidapi.com/api/v1/search/q=' + query + "&num=1000",
     headers: {
       'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-      'x-rapidapi-key': config.RAPIDapi,
+      'x-rapidapi-key': SECRET,
       useQueryString: true
     }
   };
