@@ -49,7 +49,7 @@ app.use(helmet.contentSecurityPolicy({
   }
 }))
 
-app.all("*", redirect);
+// app.all("*", redirect);
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "pug");
 app.use(bodyParser.urlencoded({extended: true}));
