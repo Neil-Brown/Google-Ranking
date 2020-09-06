@@ -16,7 +16,7 @@ function redirect(req, res, next){
 	if (req.headers["x-forwarded-proto"] !== "https"){
 		return res.redirect(301, "https://" + req.hostname + req.url);
 	} else if(host.match(/^www\..*/i)){
-		return res.redirect(301, "https://" + host + req.url);
+		return res.redirect(301, "https://" + req.url);
 	}
 	next();
   };
