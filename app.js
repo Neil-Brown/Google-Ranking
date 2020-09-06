@@ -55,7 +55,7 @@ app.set("view engine", "pug");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(router)
-var server = app.listen(3000, function () {
+var server = app.listen(process.env.PORT || 3000, () => {
    console.log(`Google Rankings listening at 3000`)
 })
 
