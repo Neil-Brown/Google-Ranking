@@ -10,25 +10,37 @@ body{
 #rank{
     text-align:center;
     background-color:#ABDBDF;
+    color:#343A40;
     padding:1rem;
     font-size:1rem;
     margin:0 !important;
-    min-height:80%
+    min-height:76%
 
 
 }
 
 #footer{
     background-color:#343A40;
-    color:white;
+    color:#FBFEFF;
     padding:1rem
 
 
 }
 
 
-.display-4{
-    text-shadow:0 2px 0 rgba(52,58,72,0.5)
+#rank h1{
+    text-shadow:0 2px 0 rgba(52,58,72,0.5);
+    font-size:4rem;
+    margin-bottom:2rem
+}
+
+#rank .lead {
+  font-size:2rem;
+  margin:.3rem
+}
+
+#getRank{
+  margin-top:2rem
 }
 
 #rank input{
@@ -51,14 +63,14 @@ body{
     display:none;
 }
 .btn{
-    background-color:#343A40;
-    color:white;
-    margin:1rem .5rem;
+    background-color:#4B9198;
+    color:#FBFEFF;
+    margin:1rem 0rem;
     font-size:1.5rem
 }
 
 .btn:hover{
-    background-color
+    background-color:#FFECC3
 }
 
 .badge{ 
@@ -70,7 +82,7 @@ body{
 
 .popover-header{
   background-color:#343A40;
-  color:white;
+  color:#FBFEFF;
 }
 
 .hide {
@@ -91,4 +103,48 @@ body{
 
 .citation a{
   color:blue
+}
+
+.alert{
+  display:none;
+  width:100%;
+  margin: 1rem 0 0
+}
+
+.alert p{
+  margin:0
+}
+
+
+#rank h1{
+  fon
+}
+
+@media screen and (max-width: 810px) {
+  #rank h1 {
+    font-size:3rem
+  }
+  #rank .lead{
+    font-size:1.2rem
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #rank h1 {
+    font-size:2rem
+  }
+
+  #rank .lead{
+    font-size:1rem
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #rank h1 {
+    font-size:1.5rem
+  }
+
+  #rank .lead{
+    font-size:.9rem
+  }
 }

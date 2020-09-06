@@ -1,16 +1,23 @@
 document.querySelector("#getRank").addEventListener("submit", getRank)
-// 
-// $(function () {
-//   $('[data-toggle="popover"]').popover()
-// })
+const rankALert = document.querySelector("#rankAlert")
+
+function showAlert(mess="", type="alert-danger", alert="#rankAlert"){
+	rankAlert.querySelector("p").textContent = mess
+	rankAlert.classList.add(type);
+	rankAlert.style.display = "inline-block"
+	setTimeout(function(){ 
+		rankALert.style.display = "none";
+		rankAlert.classList.remove(type) 
+	}, 3000);
+}
 
 function getRank(e){
 	function validate(){
 		if (!document.forms["getRank"]["key1"].value && !document.forms["getRank"]["key2"].value && !document.forms["getRank"]["key3"].value){
-			alert("At least one keyword is required")
+			showAlert("At least one keyword is required")
 			return false
 		} else if(!document.forms["getRank"]["site"].value){
-			alert("Your site URL is required")
+			showAlert("Your site URL is required")
 			return false
 		}
 		return true
