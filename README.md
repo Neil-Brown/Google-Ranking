@@ -4,7 +4,21 @@ Google ranking is and SEO website that will calculate your site's ranking on Goo
 
 ## Installation
 
-visit:   Not Published
+visit: https://google-ranker.herokuapp.com/
+
+Or
+
+Clone this repository.
+Create an FREE account at https://rapidapi.com/ and receive your secret key.
+Create a config.js file in the root directory (this file is already specified in the .gitignore file)
+Add the following to the config.js file
+```
+var config = {
+  RAPIDapi: "YOUR SECRET KEY"
+}
+module.exports = config
+```
+
 
 ## Usage
 
