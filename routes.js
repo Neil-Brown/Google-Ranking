@@ -45,7 +45,7 @@ router.post("/getRank", upload.none(), async (req, res) => {
   // Format RAPIDapi options
   var options = {
     method: 'GET',
-    url: 'https://google-search3.p.rapidapi.com/api/v1/search/q=' + query + "&num=1000",
+    url: 'https://google-search3.p.rapidapi.com/api/v1/search/q=' + query + "&num=100",
     headers: {
       'x-rapidapi-host': 'google-search3.p.rapidapi.com',
       'x-rapidapi-key': SECRET,
@@ -79,7 +79,6 @@ router.post("/getRank", upload.none(), async (req, res) => {
 
 // Site Map
 router.get('/sitemap.xml', (req, res) =>{
-  console.log("Here")
 	res.set('Content-Type', 'text/xml')
 	res.status(200).sendFile("sitemap.xml", {root: "./"});
 });

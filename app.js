@@ -53,9 +53,8 @@ app.use(helmet.contentSecurityPolicy({
     scriptSrc:[
       "'self'",
       `'nonce-${nonce}'`,
-      "https://www.google-analytics.com",
       "'sha384-kvQSltvHvSg/3tzsKo6WscGmhSm10Tqg7f4Sn+okA4GdpCI/h8UjPpU/M4ea/z9V'", //Bootstrap native
-      "'sha256-ACZs81gqsgh5iAo1PHojKYR9CfZfnzwnrPyBLJ6Giok='"  // Google Analytics Inline
+      "'sha256-OVRJCRQtveHnLM73Xmgr8qo0XRUOMKA07R+uTKpq6SI='"  // Google Analytics Inline
     ],
     connectSrc:["https://www.google-analytics.com", "'self'"],
   }
