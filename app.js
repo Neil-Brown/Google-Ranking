@@ -65,6 +65,7 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "pug");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use('/favicon.ico', express.static('img/favicon.ico'))
 app.use(router)
 var server = app.listen(process.env.PORT || 3000, () => {
    console.log(`Google Rankings listening at ` + environment)

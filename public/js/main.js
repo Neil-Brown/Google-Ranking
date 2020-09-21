@@ -1,15 +1,24 @@
 document.querySelector("#getRank").addEventListener("submit", getRank)
 const rankALert = document.querySelector("#rankAlert")
+let timeout
 
 function showAlert(mess="", type="alert-danger", alert="#rankAlert"){
 	rankAlert.querySelector("p").textContent = mess
 	rankAlert.classList.add(type);
+	rankAlert.style.opacity = 1
 	rankAlert.style.display = "inline-block"
-	setTimeout(function(){ 
+	timeout = setTimeout(function(){ 
 		rankALert.style.display = "none";
 		rankAlert.classList.remove(type) 
 	}, 3000);
 }
+
+document.querySelector(".close").addEventListener("click", function(e){
+	e.preventDefault()
+	rankALert.style.display = "none";
+	clearTimeout(timeout)
+
+})
 
 function getRank(e){
 	function validate(){
